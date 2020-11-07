@@ -72,12 +72,20 @@ void recv_msg_handler()
       str_overwrite_stdout();
     } else if (receive == 0) {
 			break;
-    }
+    
      } else {
 			// -1
 		}
 		memset(message, 0, sizeof(message));
   }
+}
+
+int main(int argc, char **argv)
+{
+    if(argc!=2)
+    {
+        
+    }
 }
 
     }
