@@ -84,8 +84,27 @@ int main(int argc, char **argv)
 {
     if(argc!=2)
     {
-        
+        printf("Usage: %s <port>\n", argv[0]);
+        return EXIT_FAILURE;
     }
+    char *ip = "127.0.0.1";
+    int port = atoi(argv[1]);
+    signal(SIGINT, catch_ctrl_c_and_exit);
+
+    printf("Enter your Name");
+    fgets(name, 32, stdin)
+    str_trim_lf(name, strlen(name));
+
+    if(strlen(name)>32 || strlen(name)<2)
+    {
+        printf("Name must be less than 30 and more than 2 characters \n");
+        return EXIT_FAILURE;
+
+    }
+    	struct sockaddr_in server_addr;
+
+        // Settings for socket!!
+
 }
 
     }
