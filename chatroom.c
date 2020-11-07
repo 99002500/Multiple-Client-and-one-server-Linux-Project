@@ -204,7 +204,7 @@ if(bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr))<0)
      return EXIT_FAILURE;
  }
 
- printf("-------Connecting people!!--------");
+ printf("-------Connecting people!!--------\n");
 
 while(1)
 {
