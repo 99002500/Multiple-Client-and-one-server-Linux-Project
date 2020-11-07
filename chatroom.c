@@ -60,6 +60,39 @@ if(bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr))<0)
      return EXIT_FAILURE;
  }
 
+ printf("-------Connecting people!!--------");
+
+while(1)
+{
+    socklen_t clilen = sizeof(cli_addr);
+    connfd = accept(listenfd, (struct sockaddr));
+    
+    // We had defined max clients. We have to check now if there are maximum clients
+ 
+ if((cli_count+1)==MAX_CLIENTS)
+ {
+     printf("Sorry to say that limit exceeded!!");
+     print_client_addr(cli_addr);
+     printf(":%d\n", cli_addr.sin_port);
+     close(connfd);
+     continue;
+
+ }
+
+ // Settings for client
+client_t *cli = (client_t *)malloc(sizeof(client_t));
+cli->address = cli_addr;
+cli->sockfd = connfd;
+cli->uid = uid++;
+
+// Add client to the queue and fork thread
+
+queue_add(cli);
+pthread_create(&tid, NULL, &handle_client, (void*)cli);
+
+sleep(1);
+}
+
 
 
 }
