@@ -16,6 +16,34 @@
 static _Atomic unsigned int cli_count = 0;
 static int uid = 10;
 
+/* Client structure */
+typedef struct{
+	struct sockaddr_in address;
+	int sockfd;
+	int uid;
+	char name[32];
+} client_t;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main(int argc, char **argv)
 {
@@ -93,6 +121,6 @@ pthread_create(&tid, NULL, &handle_client, (void*)cli);
 sleep(1);
 }
 
-
+return EXIT_SUCCESS;
 
 }
