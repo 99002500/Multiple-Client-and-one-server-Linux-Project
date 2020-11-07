@@ -64,6 +64,25 @@ void queue_add(client_t *cl){
 	pthread_mutex_unlock(&clients_mutex);
 }
 
+// Remove clients in the queue
+
+void queue_remove(int uid)
+{pthread_mutex_lock(&clients_mutex);
+
+	for(int i=0; i < MAX_CLIENTS; ++i){
+		if(clients[i]){
+			if(clients[i]->uid == uid){
+				clients[i] = NULL;
+				break;
+			}
+		}
+	}
+
+	pthread_mutex_unlock(&clients_mutex);
+
+
+}
+
 
 
 
