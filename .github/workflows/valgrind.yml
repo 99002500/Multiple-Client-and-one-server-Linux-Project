@@ -20,5 +20,5 @@ jobs:
     - name: valgrind check
       run: |
         make Makefile compile
-        valgrind ./chatroom
+        valgrind ./chatroomclient
         
