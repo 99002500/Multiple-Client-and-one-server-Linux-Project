@@ -191,7 +191,7 @@ int main(int argc, char **argv)
     return EXIT_FAILURE;
 }
 // Now we are going to bind the address
-
+//abc
 if(bind(listenfd, (struct sockaddr*)&serv_addr, sizeof(serv_addr))<0)
 {
  printf("ERROR: listen\n");   
