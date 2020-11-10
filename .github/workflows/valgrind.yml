@@ -19,6 +19,6 @@ jobs:
         sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev 
     - name: valgrind check
       run: |
-        
-        valgrind ./chatroomclient 4444
-        
+        make compile
+        valgrind ./chatroom 4444
+        valgrind ./chatroomclient 4444       
