@@ -20,5 +20,5 @@ jobs:
     - name: valgrind check
       run: |
       
-        valgrind ./chatroomclient
+        valgrind ./chatroomclient.o
         
