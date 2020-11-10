@@ -11,8 +11,6 @@
 
 #define LENGTH 2048
 
-// Global variables
-
 volatile sig_atomic_t flag = 0;
 int sockfd = 0;
 char name[32];
@@ -50,12 +48,13 @@ void send_msg_handler()
         str_trim_lf(message, LENGTH);
          if (strcmp(message, "exit") == 0) {
 			break;
-    } else {
+    } 
+    else {
       sprintf(buffer, "%s: %s\n", name, message);
       send(sockfd, buffer, strlen(buffer), 0);
     }
 
-		bzero(message, LENGTH);
+	bzero(message, LENGTH);
     bzero(buffer, LENGTH + 32);
   }
   catch_ctrl_c_and_exit(2);
@@ -74,7 +73,6 @@ void recv_msg_handler()
 			break;
     
      } else {
-			// -1
 		}
 		memset(message, 0, sizeof(message));
   }
@@ -92,7 +90,7 @@ int main(int argc, char **argv)
     signal(SIGINT, catch_ctrl_c_and_exit);
 
     printf("Enter your Name");
-    fgets(name, 32, stdin)
+    fgets(name, 32, stdin);
     str_trim_lf(name, strlen(name));
 
     if(strlen(name)>32 || strlen(name)<2)
@@ -103,8 +101,8 @@ int main(int argc, char **argv)
     }
     	struct sockaddr_in server_addr;
 
-        // Settings for socket!!
-       sockfd = socket(AF_INET, SOCK_STREAM, 0);
+        // Settings for socket
+  sockfd = socket(AF_INET, SOCK_STREAM, 0);
   server_addr.sin_family = AF_INET;
   server_addr.sin_addr.s_addr = inet_addr(ip);
   server_addr.sin_port = htons(port);
@@ -146,7 +144,3 @@ int main(int argc, char **argv)
 }
 
 
-}
-
-    }
-}
